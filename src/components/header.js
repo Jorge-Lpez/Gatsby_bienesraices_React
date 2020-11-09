@@ -1,42 +1,52 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import { graphql, useStaticQuery } from "gatsby"
+import Navegacion from "./navegacion";
+import styled from "@emotion/styled";
+import { Link } from "gatsby";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const ContenedorHeader = styled.header`
+    background-color: #0D283B;
+    div{
+        max-width: 120rem;
+        margin: 0 auto;
+        text-align: center;
+        @media screen and (min-width: 768px){
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+`;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+const Logo = styled(Link)`
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px ;
+    font-family: "Roboto";
+    span{
+        font-weight: bold;
+    }
+`;
+
+const Header = () => {
+    /*const resultado = useStaticQuery(graphql`
+        query{
+            paginas{
+            nombre
+            }
+        }
+    `);
+
+    console.log(resultado);*/
+
+    return ( 
+        <ContenedorHeader>
+            <div>
+                <Logo to={"/"}>BIENES<span>RAICES</span></Logo>
+                <Navegacion/>
+            </div>
+        </ContenedorHeader>
+     );
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+ 
+export default Header;
