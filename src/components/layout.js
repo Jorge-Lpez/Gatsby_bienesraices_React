@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+//import { useStaticQuery, graphql } from "gatsby"
 //import "./layout.css"
 import { Helmet } from "react-helmet";
 import { Global, css } from "@emotion/core"

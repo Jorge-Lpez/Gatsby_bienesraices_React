@@ -32,7 +32,7 @@ const Header = () => {
     return ( 
         <ContenedorHeader>
             <div>
-                <Link to={"/"}><img src={resultado.file.publicURL}/></Link>
+                <Link to={"/"}><img src={resultado.file.publicURL} alt="logo"/></Link>
                 <Navegacion/>
             </div>
         </ContenedorHeader>
