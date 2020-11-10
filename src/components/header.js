@@ -18,31 +18,21 @@ const ContenedorHeader = styled.header`
     }
 `;
 
-const Logo = styled(Link)`
-    text-decoration: none;
-    color: #fff;
-    font-size: 30px ;
-    font-family: "Roboto";
-    span{
-        font-weight: bold;
-    }
-`;
-
 const Header = () => {
-    /*const resultado = useStaticQuery(graphql`
+    const resultado = useStaticQuery(graphql`
         query{
-            paginas{
-            nombre
+            file(relativePath: { eq: "logo.svg" }){
+            publicURL
             }
         }
     `);
 
-    console.log(resultado);*/
-
+    console.log(resultado.file.publicURL);
+        //<Logo to={"/"}>BIENES<span>RAICES</span></Logo
     return ( 
         <ContenedorHeader>
             <div>
-                <Logo to={"/"}>BIENES<span>RAICES</span></Logo>
+                <Link to={"/"}><img src={resultado.file.publicURL}/></Link>
                 <Navegacion/>
             </div>
         </ContenedorHeader>
