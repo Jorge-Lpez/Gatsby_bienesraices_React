@@ -3,7 +3,10 @@ import Layout from "../components/layout"
 import UsePaginas from "../hooks/use_paginas";
 import styled from "@emotion/styled";
 import BackgroundImage from 'gatsby-background-image';
-import { css } from "@emotion/core";
+import Encuentra from "../components/encuentra";
+import Estilosmodule from "../css/estilos.module.css";
+import ListadoPropiedades from "../components/listadopropiedades";
+
 
 const ContenedorMain = styled.main`
     max-width: 1200px;
@@ -21,9 +24,9 @@ const ContenedorMain = styled.main`
 
 const IndexPage = () => {
   const informacion = UsePaginas();
-  console.log(informacion);
+  //console.log(informacion);
   const {nombre, contenido, imagen} = informacion;
-  console.log(imagen.Sharp.fluid);
+  //console.log(imagen.Sharp.fluid);
   return ( 
       <Layout>
 
@@ -32,8 +35,8 @@ const IndexPage = () => {
               fluid={imagen.Sharp.fluid}
               fadeIn="soft"
            >
-              <div>
-                <h1> Ventas de casa y departamentos exclusivos</h1>
+              <div className={Estilosmodule.div_imagen}>
+                <h1 className={Estilosmodule.titulo}> Ventas de casa y departamentos exclusivos</h1>
               </div>
           </ImagenFondo>
 
@@ -42,6 +45,9 @@ const IndexPage = () => {
             <p>{contenido}</p>
           </ContenedorMain>
 
+          <Encuentra/>
+
+          <ListadoPropiedades/>
       </Layout>
    );
 }

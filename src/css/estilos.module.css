@@ -1,0 +1,22 @@
+.div_imagen{
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.titulo{
+    font-size: 4rem;
+    margin: 0;
+    max-width: 800px;
+}
+
+@media screen and ( min-width: 998px){
+    .titulo{
+        font-size: 5rem;
+    }
+}

@@ -27,7 +27,7 @@ const Header = () => {
         }
     `);
 
-    console.log(resultado.file.publicURL);
+    //console.log(resultado.file.publicURL);
         //<Logo to={"/"}>BIENES<span>RAICES</span></Logo
     return ( 
         <ContenedorHeader>
