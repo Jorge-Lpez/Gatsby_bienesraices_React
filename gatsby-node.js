@@ -30,7 +30,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         //console.log( urlSlug(propiedad.nombre));
         actions.createPage({
             path: urlSlug(propiedad.nombre),
-            component: require.resolve("./src/components/propiedades.js")
+            component: require.resolve("./src/components/propiedades.js"),
+            context: { 
+                id: propiedad.id
+            }
         })
     } )
 }
