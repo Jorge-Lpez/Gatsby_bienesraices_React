@@ -44,7 +44,7 @@ const Boton = styled(Link)`
 const PropiedadPreview = ({propiedad}) => {
     //console.log(propiedad);
     const { nombre, precio, wc, estacionamiento, habitaciones, imagen } = propiedad;
-    //console.log(imagen);
+    //console.log(urlSlug(nombre));
     return ( 
         <Card>
             <Image 
@@ -67,7 +67,3 @@ const PropiedadPreview = ({propiedad}) => {
 }
  
 export default PropiedadPreview;
-
-/**
- * 
- */

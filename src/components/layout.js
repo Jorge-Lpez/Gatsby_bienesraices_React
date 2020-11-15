@@ -64,12 +64,6 @@ const Layout = ({ children }) => {
             {children}
           </main>
 
-          <footer style={{
-              marginTop: `2rem`
-            }}>
-              <p>Pie de pagina</p>
-          </footer>
-
       </div>
     </>
   )

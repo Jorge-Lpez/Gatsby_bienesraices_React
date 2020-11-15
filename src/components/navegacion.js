@@ -29,6 +29,8 @@ const Nav = styled.nav`
 `;
 
 const Navegacion = () => {
+    
+    
     return ( 
             <Nav>
                 <LinkNav to={"/"} activeClassName="pagina-actual">Inicio</LinkNav>

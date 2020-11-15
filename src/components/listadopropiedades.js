@@ -3,22 +3,26 @@ import { css } from "@emotion/core";
 import UsePropiedades from "../hooks/usePropiedades";
 import PropiedadPreview from "../components/propiedadpreviwe";
 import ListadoCSS from "../css/listadopropiedades.module.css";
-import useFiltro  from "../hooks/useFiltro";
+import useBusqueda from "../hooks/useBusqueda";
 
 const ListadoPropiedades = () => {
     const datos = UsePropiedades();
+
     //STATE que guarda los datos
-    const [propiedades, guardarPropiedades] = useState([]);
-    //Actualizando state al momento de cargar propiedades
+    const [ propiedades ] = useState(datos);
+    const [ filtradas, guardarFiltradas ] = useState([]);
 
-    //Filtrado de propiedades
-    const { busqueda, FlitroUI } = useFiltro();
-
-
+    const { UiFiltro, busqueda } = useBusqueda(); 
+    
     useEffect(() => {
-        guardarPropiedades(datos);
-    }, [])
-    //console.log(informacion);
+        if(busqueda){
+            const filtro = propiedades.filter( propiedad => propiedad.categorias.nombre ===  busqueda)
+            guardarFiltradas(filtro);
+        }else{
+            guardarFiltradas(propiedades);
+        }
+    }, [busqueda, propiedades])
+
     return ( 
         <>
             <h2
@@ -26,11 +30,11 @@ const ListadoPropiedades = () => {
                     margin-top: 20px;
                 `}
             >Nuestras Propiedades</h2>
-            
-            {FlitroUI()}
+
+            {UiFiltro()}
 
             <ul className={ListadoCSS.propiedades}>
-                {propiedades.map( propiedad => (
+                {filtradas.map( propiedad => (
                     <PropiedadPreview
                         key= {propiedad.id}
                         propiedad = {propiedad}
